@@ -2,11 +2,7 @@ import { motion, Variants } from "framer-motion";
 import { FC } from "react";
 import { Link } from "react-router-dom";
 import { IPizza } from "../types";
-
-const containerVariants: Variants = {
-  hidden: { x: "100vw", opacity: 0 },
-  visible: { opacity: 1, x: 0, transition: { type: "spring", delay: 0.5 } },
-};
+import { containerVariants } from "./common";
 
 const nextVariants: Variants = {
   hidden: { x: "-100vw" },

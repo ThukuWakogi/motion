@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { FC } from "react";
 import { Link } from "react-router-dom";
 import { IPizza } from "../types";
+import { containerVariants } from "./common";
 
 const Toppings: FC<{
   addTopping: (topping: string) => void;
@@ -17,7 +18,12 @@ const Toppings: FC<{
   ];
 
   return (
-    <div className="toppings container">
+    <motion.div
+      className="toppings container"
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
+    >
       <h3>Step 2: Choose Toppings</h3>
       <ul>
         {toppings.map((topping) => {
@@ -46,7 +52,7 @@ const Toppings: FC<{
           Order
         </motion.button>
       </Link>
-    </div>
+    </motion.div>
   );
 };
 
