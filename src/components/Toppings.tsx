@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { FC } from "react";
 import { Link } from "react-router-dom";
 import { IPizza } from "../types";
@@ -22,15 +23,28 @@ const Toppings: FC<{
         {toppings.map((topping) => {
           let spanClass = pizza.toppings.includes(topping) ? "active" : "";
           return (
-            <li key={topping} onClick={() => addTopping(topping)}>
+            <motion.li
+              key={topping}
+              onClick={() => addTopping(topping)}
+              whileHover={{ scale: 1.3, color: "#f8e112", originX: 0 }}
+              transition={{ type: "spring", stiffness: 300 }}
+            >
               <span className={spanClass}>{topping}</span>
-            </li>
+            </motion.li>
           );
         })}
       </ul>
 
       <Link to="/order">
-        <button>Order</button>
+        <motion.button
+          whileHover={{
+            scale: 1.1,
+            textShadow: "0px 0px 8px rgb(255,255,255)",
+            boxShadow: "0px 0px 8px rgb(255,255,255)",
+          }}
+        >
+          Order
+        </motion.button>
       </Link>
     </div>
   );
